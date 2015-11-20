@@ -5,7 +5,7 @@ Scroller is a JavaScript class for scrolling on a web page.
 * **Plain JavaScript** - this class hasn't dependencies on external libraries, just plain JS;
 * **IE9+ supports** - It works on IE9 and above, but in IE9 without animation, because the browser doesn't support [requestAnimationFrame](http://caniuse.com/#search=requestAnimationFrame);
 * **Behavioral pattern** - It use this pattern, so you don't need to pass DOM-elements to the constructor;
-* **Recalculates after resizing supports** - It can recalculates coordinates after window resizing.
+* **Recalculates after resizing supports** - It can recalculates coordinates after [window resizing](#resized).
 
 ## Usage
 
@@ -23,7 +23,7 @@ Add the script to a page and initialize the class. For example:
     });
   </script>
 ```
-Note that you may change namespace (in example `_`) in [webpack.config.js](./webpack.config.js) before building.
+**Note** that you may change namespace (in example `_`) in [webpack.config.js](./webpack.config.js) before [building](#building).
 
 Link the link that will take the clicks with the block to which you want to scroll through attributes `data-scroller-area` and `data-scroller-link`:
 
@@ -59,7 +59,7 @@ You may see [this example](./example/index.html).
 * `attributeArea` - string the attribute name for the area. Default: `"data-scroller-area"`;
 * `duration` - the duration (ms) of animation. Default: `500`;
 
-## Resized example
+## <a name="resized"></a>Resized example
 
 If you want the class recalculate the coordinates after each resizing window that you may attach handler on `resize` event:
 
@@ -99,13 +99,13 @@ function throttle(doSomething, ms) {
 };
 ```
 
-## Building
+## <a name="building"></a>Building
 
-Run after cloning the repository:
+Run this command after cloning the repository from the cloned folder:
 
-``sh
+```sh
 run-scripts build
-``
+```
 
 ## License
 
