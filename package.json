@@ -1,0 +1,30 @@
+{
+  "name": "scroller",
+  "version": "0.0.1",
+  "description": "Scrolling class for a web page",
+  "main": "src/entry.js",
+  "author": {
+    "name": "Selkin Vitaly",
+    "email": "contact@selkinvitaly.ru"
+  },
+  "scripts": {
+    "build": "npm install && NODE_ENV=production webpack",
+    "watch": "webpack"
+  },
+  "homepage": "https://github.com/selkinvitaly/scroller/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/selkinvitaly/scroller.git"
+  },
+  "keywords": [
+    "scrolling",
+    "scroller",
+    "components"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "node-static": "^0.7.7",
+    "webpack": "^1.12.6"
+  },
+  "private": false
+}
