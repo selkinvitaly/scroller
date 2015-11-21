@@ -12,7 +12,7 @@ Scroller is a JavaScript class for scrolling on a web page.
 Add the script to a page and initialize the class. For example:
 
 ```html
-<script src="../dist/scroller-0.0.1.min.js"></script>
+<script src="../dist/scroller.min.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       var scroller = new _({
