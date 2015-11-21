@@ -12,7 +12,7 @@ Scroller is a JavaScript class for scrolling on a web page.
 Add the script to a page and initialize the class. For example:
 
 ```html
-<script src="../build/scroller-0.0.1.min.js"></script>
+<script src="../dist/scroller-0.0.1.min.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       var scroller = new _({
@@ -104,11 +104,11 @@ function throttle(doSomething, ms) {
 Run this command after cloning the repository from the cloned folder:
 
 ```sh
-run-scripts build
+npm run build
 ```
 
 ## License
 
 [MIT](./LICENSE)
 
-Copyright (c) Selkin Vitaly, 2015
+Copyright © Selkin Vitaly, 2015

@@ -14,8 +14,8 @@ module.exports = {
 
   entry: "./src/entry",
   output: {
-    path: __dirname + "/build",
-    filename: `${name}-${version}.min.js`,
+    path: __dirname + "/dist",
+    filename: `${name}.min.js`,
     library: namespace
   },
   resolve: {
