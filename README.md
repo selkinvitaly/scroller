@@ -25,7 +25,7 @@ Add the script to a page and initialize the class. For example:
 ```
 **Note** that you may change namespace (in example `_`) in [webpack.config.js](./webpack.config.js) before [building](#building).
 
-Link the link that will take the clicks with the block to which you want to scroll through attributes `data-scroller-area` and `data-scroller-link`:
+You need to associate the link that will take the clicks with the block to which you want to scroll through attributes `data-scroller-area` and `data-scroller-link`:
 
 ```html
 <ul>
@@ -52,7 +52,7 @@ You may see [this example](./example/index.html).
 
 **API**:
 * `init()` - Initialization method;
-* `resized` - It have `true` If there was resizing window, else `false`;
+* `resized` - It has `true` If there was resizing window, else `false`;
 
 **Constructor options**:
 * `attributeLink` - string the attribute name for the link. Default: `"data-scroller-link"`;
