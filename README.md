@@ -52,12 +52,13 @@ You may see [this example](./example/index.html).
 
 **API**:
 * `init()` - Initialization method;
-* `resized` - It has `true` If there was resizing window, else `false`;
+* `resized` - It has `true` If there was resizing window, else `false`.
 
 **Constructor options**:
 * `attributeLink` - string the attribute name for the link. Default: `"data-scroller-link"`;
 * `attributeArea` - string the attribute name for the area. Default: `"data-scroller-area"`;
-* `duration` - the duration (ms) of animation. Default: `500`;
+* `attributeDuration` - string the attribute name for duration. Default: `"data-scroller-duration"`;
+* `duration` - the duration (ms) of animation. Default: `500`.
 
 ## <a name="resized"></a>Resized example
 
