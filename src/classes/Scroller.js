@@ -40,7 +40,7 @@ module.exports = function(options) {
   // private
   function _touchEndHandler(event) {
     self._cancelEvent(event);
-    event.target.click();
+    _clickHandler.apply(this, arguments);
   }
 
   // private
