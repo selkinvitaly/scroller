@@ -24,7 +24,6 @@ module.exports = function(options) {
   // public
   this.init = function() {
     document.addEventListener("click", _clickHandler, false);
-    document.addEventListener("touchend", _touchEndHandler, false);
   };
 
   // getter and setter
@@ -36,12 +35,6 @@ module.exports = function(options) {
       resized = bool;
     }
   });
-
-  // private
-  function _touchEndHandler(event) {
-    self._cancelEvent(event);
-    _clickHandler.apply(this, arguments);
-  }
 
   // private
   function _clickHandler(event) {
