@@ -127,4 +127,45 @@
 
   });
 
+  // Scroller.prototype._getDurationScrolling()
+  describe("Method _getDurationScrolling", function() {
+
+    it("returns the custom duration", function() {
+      let elem     = document.createElement("div");
+      let duration = 15000;
+      let timing   = 10000;
+
+      elem.setAttribute("data-scroller-duration", duration);
+
+      let result = scroller._getDurationScrolling(elem, timing, "data-scroller-duration");
+
+      expect(result).toBe(duration);
+    });
+
+    it("returns the default duration", function() {
+      let elem     = document.createElement("div");
+      let timing   = 10000;
+      let duration = "tumba-umba";
+
+      elem.setAttribute("data-scroller-duration", duration);
+
+      let result = scroller._getDurationScrolling(elem, timing, "data-scroller-duration");
+
+      expect(result).toBe(timing);
+    });
+
+    it("returns a zero duration", function() {
+      let elem     = document.createElement("div");
+      let duration = 0;
+      let timing   = 10000;
+
+      elem.setAttribute("data-scroller-duration", duration);
+
+      let result = scroller._getDurationScrolling(elem, timing, "data-scroller-duration");
+
+      expect(result).toBe(duration);
+    });
+
+  });
+
 }(window._));
