@@ -168,4 +168,82 @@
 
   });
 
+  // Scroller.prototype._calcCoordinates()
+  describe("Method _calcCoordinates", function() {
+    let remove;
+
+    beforeAll(function() {
+
+      remove = function(elem) {
+        return document.body.removeChild(elem);
+      };
+
+    });
+
+    it("calculates coordinates, but the cache object hasn't coordinates. resized is false", function() {
+      let area     = document.createElement("div");
+      let elements = {
+        nameArea: {
+          area: area
+        }
+      };
+
+      area.style.cssText = "height:300px; width:400px;";
+      document.body.appendChild(area);
+      scroller._calcCoordinates("nameArea", elements);
+
+      expect(elements.nameArea.pageY).toBeDefined();
+
+      remove(area);
+    });
+
+    it("doesn't calculates coordinates, because the cache object has coordinates. resized is false", function() {
+      let area     = document.createElement("div");
+      let elements = {
+        nameArea: {
+          area: area,
+          pageY: {
+            top: 100,
+            bottom: 400,
+            corrected: 100
+          }
+        }
+      };
+      let topCoord = elements.nameArea.pageY.top;
+
+      area.style.cssText = "height:300px; width:400px;";
+      scroller._calcCoordinates("nameArea", elements);
+
+      expect(elements.nameArea.pageY.top).toEqual(topCoord);
+
+    });
+
+    it("calculates all coordinates. resized is true", function() {
+      let area     = document.createElement("div");
+      let area2    = document.createElement("div");
+      let elements = {
+        nameArea: {
+          area: area
+        },
+        nameArea2: {
+          area: area2
+        }
+      };
+
+      area.style.cssText = area2.style.cssText = "height:300px; width:400px;";
+      document.body.appendChild(area);
+      document.body.appendChild(area2);
+
+      scroller.resized = true;
+      scroller._calcCoordinates("nameArea", elements);
+
+      expect(elements.nameArea.pageY).toBeDefined();
+      expect(elements.nameArea2.pageY).toBeDefined();
+
+      remove(area);
+      remove(area2);
+    });
+
+  });
+
 }(window._));
