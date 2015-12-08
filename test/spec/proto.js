@@ -246,4 +246,23 @@
 
   });
 
+  // Scroller.prototype._getCoordinateByName()
+  describe("Method _getCoordinateByName", function() {
+
+    it("returns the corrected coordinate from the cache object", function() {
+      let elements  = {
+        nameArea: {
+          pageY: {
+            corrected: 100
+          }
+        }
+      };
+      let corrected = elements.nameArea.pageY.corrected;
+      let result    = scroller._getCoordinateByName("nameArea", elements);
+
+      expect(result).toEqual(corrected);
+    });
+
+  });
+
 }(window._));
