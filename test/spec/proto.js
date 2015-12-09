@@ -259,4 +259,39 @@
 
   });
 
+  // Scroller.prototype._calcCoordinateByName()
+  describe("Method _calcCoordinateByName", function() {
+    let remove;
+
+    beforeAll(function() {
+
+      remove = function(elem) {
+        return document.body.removeChild(elem);
+      };
+
+    });
+
+    it("calculates coordinates", function() {
+      let area     = document.createElement("div");
+      let elements = {
+        nameArea: {
+          area: area
+        }
+      };
+
+      area.style.cssText = "height:300px; width:400px;";
+      document.body.appendChild(area);
+
+      spyOn(scroller, "_getAdjustedCoordinate");
+
+      scroller._calcCoordinateByName("nameArea", elements);
+
+      expect(elements.nameArea.pageY).toBeDefined();
+      expect(scroller._getAdjustedCoordinate).toHaveBeenCalled();
+
+      remove(area);
+    });
+
+  });
+
 }(window._));
