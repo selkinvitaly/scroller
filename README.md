@@ -15,7 +15,7 @@ Add the script to a page and initialize the class. For example:
 <script src="../dist/scroller.min.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function() {
-      var scroller = new _({
+      var scroller = new Scroller({
         duration: 300
       });
 
@@ -23,7 +23,7 @@ Add the script to a page and initialize the class. For example:
     });
   </script>
 ```
-**Note** that you may change namespace (in example `_`) in [webpack.config.js](./webpack.config.js) before [building](#building).
+**Note** that you may change namespace (in example `Scroller`) in [webpack.config.js](./webpack.config.js) before [building](#building).
 
 You need to associate the link that will take the clicks with the block to which you want to scroll through attributes `data-scroller-area` and `data-scroller-link`:
 
@@ -65,7 +65,7 @@ You may see [this example](./example/index.html).
 If you want the class recalculate the coordinates after each resizing window that you may attach handler on `resize` event:
 
 ```js
-var scroller = new _();
+var scroller = new Scroller();
 var handlerResized = throttle(function() {
   scroller.resized = true;
 }, 500);
@@ -102,13 +102,7 @@ function throttle(doSomething, ms) {
 
 ## <a name="building"></a>Building
 
-This class is built using [webpack](http://webpack.github.io/), so you need to install it:
-
-```sh
-npm i -g webpack
-```
-
-Run this command after cloning the repository from the cloned folder:
+This class is built using [webpack](http://webpack.github.io/). You just need to run this command after cloning the repository from the cloned folder:
 
 ```sh
 npm run build
