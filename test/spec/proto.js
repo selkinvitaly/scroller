@@ -294,4 +294,4 @@
 
   });
 
-}(window._));
+}(window.Scroller));

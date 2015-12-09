@@ -20,4 +20,4 @@
 
   });
 
-}(window._));
+}(window.Scroller));

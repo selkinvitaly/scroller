@@ -6,7 +6,7 @@ let nodeStatic  = require("node-static");
 let http        = require("http");
 
 const dev       = process.env.NODE_ENV !== "production";
-const namespace = "_";
+const namespace = "Scroller";
 const version   = packageJson.version;
 const name      = packageJson.name;
 
