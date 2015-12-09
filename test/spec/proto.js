@@ -238,4 +238,25 @@
 
   });
 
+  // Scroller.prototype._calcAllCoordinates()
+  describe("Method _calcAllCoordinates", function() {
+
+    it("calls the method _calcCoordinateByName several times", function() {
+      let elements = {
+        nameArea: {},
+        nameArea2: {}
+      };
+
+      spyOn(scroller, "_calcCoordinateByName");
+
+      scroller._calcAllCoordinates(elements);
+
+      expect(scroller._calcCoordinateByName).toHaveBeenCalled();
+      expect(scroller._calcCoordinateByName.calls.argsFor(0)).toEqual(["nameArea", elements]);
+      expect(scroller._calcCoordinateByName.calls.argsFor(1)).toEqual(["nameArea2", elements]);
+      expect(scroller._calcCoordinateByName.calls.count()).toEqual(2);
+    });
+
+  });
+
 }(window._));
