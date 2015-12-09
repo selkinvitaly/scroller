@@ -170,34 +170,21 @@
 
   // Scroller.prototype._calcCoordinates()
   describe("Method _calcCoordinates", function() {
-    let remove;
 
-    beforeAll(function() {
-
-      remove = function(elem) {
-        return document.body.removeChild(elem);
-      };
-
-    });
-
-    it("calculates coordinates, but the cache object hasn't coordinates. resized is false", function() {
-      let area     = document.createElement("div");
+    it("calls the method _calcCoordinateByName, because the cache object has coordinates and resized is false", function() {
       let elements = {
-        nameArea: {
-          area: area
-        }
+        nameArea: {}
       };
 
-      area.style.cssText = "height:300px; width:400px;";
-      document.body.appendChild(area);
+      spyOn(scroller, "_calcCoordinateByName");
+
       scroller._calcCoordinates("nameArea", elements);
 
-      expect(elements.nameArea.pageY).toBeDefined();
-
-      remove(area);
+      expect(scroller._calcCoordinateByName).toHaveBeenCalled();
+      expect(scroller._calcCoordinateByName.calls.argsFor(0)).toEqual(["nameArea", elements]);
     });
 
-    it("doesn't calculates coordinates, because the cache object has coordinates. resized is false", function() {
+    it("does nothing, because the cache object has coordinates and resized is false", function() {
       let area     = document.createElement("div");
       let elements = {
         nameArea: {
@@ -209,39 +196,25 @@
           }
         }
       };
-      let topCoord = elements.nameArea.pageY.top;
 
-      area.style.cssText = "height:300px; width:400px;";
+      spyOn(scroller, "_calcCoordinateByName");
+      spyOn(scroller, "_calcAllCoordinates");
+
       scroller._calcCoordinates("nameArea", elements);
 
-      expect(elements.nameArea.pageY.top).toEqual(topCoord);
-
+      expect(scroller._calcCoordinateByName).not.toHaveBeenCalled();
+      expect(scroller._calcAllCoordinates).not.toHaveBeenCalled();
     });
 
-    it("calculates all coordinates. resized is true", function() {
-      let area     = document.createElement("div");
-      let area2    = document.createElement("div");
-      let elements = {
-        nameArea: {
-          area: area
-        },
-        nameArea2: {
-          area: area2
-        }
-      };
+    it("calls the method _calcAllCoordinates, because resized is true", function() {
+      let elements = {};
 
-      area.style.cssText = area2.style.cssText = "height:300px; width:400px;";
-      document.body.appendChild(area);
-      document.body.appendChild(area2);
+      spyOn(scroller, "_calcAllCoordinates");
 
       scroller.resized = true;
       scroller._calcCoordinates("nameArea", elements);
 
-      expect(elements.nameArea.pageY).toBeDefined();
-      expect(elements.nameArea2.pageY).toBeDefined();
-
-      remove(area);
-      remove(area2);
+      expect(scroller._calcAllCoordinates).toHaveBeenCalledWith(elements);
     });
 
   });
