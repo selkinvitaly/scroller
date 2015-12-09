@@ -70,7 +70,7 @@ module.exports.prototype._closest = function(selector, target, deep) {
   var deep    = deep || 3;
   var element = target;
 
-  while (deep && element !== document && !element.matches(selector)) {
+  while (deep-- && element !== document && !element.matches(selector)) {
     element = element.parentNode;
   }
   return (element && element !== document && element.matches(selector)) ? element : null;
